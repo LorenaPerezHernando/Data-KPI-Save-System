@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Recolectable : MonoBehaviour
@@ -14,19 +15,25 @@ public class Recolectable : MonoBehaviour
     public KPIType typeKPI;
     //Fields
     DataKPI s_dataKPI;
+    CreateRecolectables s_createRecolectables;
 
 
     //Methods
     private void Awake()
     {
+        s_createRecolectables = FindFirstObjectByType<CreateRecolectables>();
         s_dataKPI = FindObjectOfType<DataKPI>();
     }
     private void OnCollisionEnter(Collision collision)
     {
+        print("Collision");
         if(collision.gameObject.tag == "Player")
         {
+            print("Collision con Player");
+            Destroy(gameObject);
             Recolectar();
-            Destroy(gameObject, 0.5f);
+           
+            
         }
     }
 
@@ -36,5 +43,7 @@ public class Recolectable : MonoBehaviour
 
         s_dataKPI.SendData(typeKPI);
     }
+
+
         
 }

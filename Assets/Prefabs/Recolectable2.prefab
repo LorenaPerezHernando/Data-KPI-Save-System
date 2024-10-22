@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4149433121563871232}
   - component: {fileID: 8207317417748608083}
   - component: {fileID: 2247969551405953419}
+  - component: {fileID: 7824395896118288343}
   m_Layer: 0
   m_Name: Recolectable2
   m_TagString: Untagged
@@ -48,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a666de00af467e74fb3e983a1a4fa387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeKPI: 0
+  typeKPI: 1
 --- !u!33 &4149433121563871232
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -120,6 +121,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &7824395896118288343
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726191132187368494}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.18, z: 0}
 --- !u!1 &5848398588073833309
 GameObject:
   m_ObjectHideFlags: 0

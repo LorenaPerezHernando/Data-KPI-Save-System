@@ -7,38 +7,65 @@ using static Recolectable;
 public class DataKPI : MonoBehaviour
 {
 
-    [SerializeField] int s_kpiRecolect1;
-    [SerializeField] int s_kpiRecolect2;
-    [SerializeField] int s_kpiRecolect3;
+    [SerializeField] int kpiRecolect1;
+    [SerializeField] int kpiRecolect2;
+    [SerializeField] int kpiRecolect3;
+    public int recolectados;
+    CreateRecolectables s_CreateRecolectable;
     //Methods
+    private void Awake()
+    {
+        s_CreateRecolectable = FindFirstObjectByType<CreateRecolectables>();
+    }
     void Start()
     {
-        s_kpiRecolect1 = 0;
-        s_kpiRecolect2 = 0;
-        s_kpiRecolect3 = 0;
+        kpiRecolect1 = 0;
+        kpiRecolect2 = 0;
+        kpiRecolect3 = 0;
+        recolectados = 0; 
     }
     public void IncrementarKPI(Recolectable.KPIType tipoKPI)
     {
         switch (tipoKPI)
         {
             case KPIType.recolectable1KPI:
-                s_kpiRecolect1++;
-                Debug.Log("Recolectable 1: " + s_kpiRecolect1);
+                kpiRecolect1++;
+                recolectados++;
+                Debug.Log("Recolectable 1: " + kpiRecolect1);
                 break;
             case KPIType.recolectable2KPI:
-                s_kpiRecolect2++;
-                Debug.Log("Recolectable 2: " + s_kpiRecolect2);
+                kpiRecolect2++; recolectados++;
+                Debug.Log("Recolectable 2: " + kpiRecolect2);
                 break;
             case KPIType.recolectable3KPI:
-                s_kpiRecolect3++;
-                Debug.Log("Recolectable 3: " + s_kpiRecolect3);
+                kpiRecolect3++; recolectados++;
+                Debug.Log("Recolectable 3: " + kpiRecolect3);
                 break;
         }
+        if(recolectados == 1 || recolectados == 4 || recolectados == 6)
+        {
+            s_CreateRecolectable.RestartPos();
+            s_CreateRecolectable.CreateRecolectable();
+            s_CreateRecolectable.offsetZ++;
+
+            if (s_CreateRecolectable.offsetZ >= 3)
+                s_CreateRecolectable.offsetZ = -4;
+        }
+        print ("Obj Recolectados: " + recolectados);
+    }
+
+    public void Tiempo()
+    {
+
+    }
+
+    public void PuntuacionFinal()
+    {
+
     }
 
     public void SendData(Recolectable.KPIType tipoKPI)
     {
-        
-        Debug.Log("Datos enviados" + tipoKPI);
+
     }
 }
