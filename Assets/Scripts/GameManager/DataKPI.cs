@@ -46,15 +46,6 @@ public class DataKPI : MonoBehaviour
         print ("Obj Recolectados: " + recolectados);
     }
 
-    public void Tiempo()
-    {
-
-    }
-
-    public void PuntuacionFinal()
-    {
-
-    }
 
     public void SendData(Recolectable.KPIType tipoKPI)
     {
