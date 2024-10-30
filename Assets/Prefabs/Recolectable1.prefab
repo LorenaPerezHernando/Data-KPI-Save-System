@@ -48,6 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeKPI: 0
+  timeWaitingToReset: 3
+  thisRenderer: {fileID: 0}
+  thisCollider: {fileID: 0}
 --- !u!33 &188626146196267235
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ public class DataKPI : MonoBehaviour
     [SerializeField] int kpiRecolect2;
     [SerializeField] int kpiRecolect3;
     public int recolectados;
-    CreateRecolectables s_CreateRecolectable;
+    FirstStart_CreateRecolectables s_CreateRecolectable;
     //Methods
     private void Awake()
     {
-        s_CreateRecolectable = FindFirstObjectByType<CreateRecolectables>();
+        s_CreateRecolectable = FindFirstObjectByType<FirstStart_CreateRecolectables>();
     }
     void Start()
     {
@@ -42,15 +42,7 @@ public class DataKPI : MonoBehaviour
                 Debug.Log("Recolectable 3: " + kpiRecolect3);
                 break;
         }
-        if(recolectados == 1 || recolectados == 4 || recolectados == 6)
-        {
-            s_CreateRecolectable.RestartPos();
-            s_CreateRecolectable.CreateRecolectable();
-            s_CreateRecolectable.offsetZ++;
-
-            if (s_CreateRecolectable.offsetZ >= 3)
-                s_CreateRecolectable.offsetZ = -4;
-        }
+       
         print ("Obj Recolectados: " + recolectados);
     }
 

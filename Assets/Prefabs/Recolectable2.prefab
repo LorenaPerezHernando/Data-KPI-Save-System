@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7824395896118288343}
   m_Layer: 0
   m_Name: Recolectable2
-  m_TagString: Untagged
+  m_TagString: Recolectable2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeKPI: 1
+  timeWaitingToReset: 3
+  thisRenderer: {fileID: 0}
+  thisCollider: {fileID: 0}
 --- !u!33 &4149433121563871232
 MeshFilter:
   m_ObjectHideFlags: 0
