@@ -10,6 +10,7 @@ public class PlayerMov : MonoBehaviour
     private Rigidbody rb;
     public float speed = 4f;
     public float speedYDash = 6f;
+    private float speedInicial;
 
     private void Awake()
     {
@@ -31,8 +32,13 @@ public class PlayerMov : MonoBehaviour
 
            if (Input.GetKeyDown(KeyCode.LeftShift))
            {
+               speedInicial = speed;
                speed = speed + speedYDash; 
            }
+            else
+            {
+                speed = speedInicial;
+            }
         }
         
 

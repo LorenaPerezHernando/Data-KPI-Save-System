@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Recolectable2
+  - BeachObject
   layers:
   - Default
   - TransparentFX

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 409268}
   - component: {fileID: 3316486}
   - component: {fileID: 2348146}
+  - component: {fileID: 8278902012352696363}
   m_Layer: 0
   m_Name: BeachChair_Green_Mobile
-  m_TagString: Untagged
+  m_TagString: BeachObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8278902012352696363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147574}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.5166497, y: 4.6958904, z: 3.6912975}
+  m_Center: {x: -0.00000015066097, y: 0.71419567, z: 1.8134744}
