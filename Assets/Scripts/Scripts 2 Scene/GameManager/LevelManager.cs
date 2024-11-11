@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     SaveSystem s_saveSystem;
     Instantiate s_instantiate;
 
+
     private void Awake()
     {
         s_ManagerGameOn = GetComponent<GameOn>();
@@ -72,8 +73,10 @@ public class LevelManager : MonoBehaviour
         s_UIControl.panelNextLevel.SetActive(true);
 
         //Poner nivel Mas dificil
+        estadoActual = EstadoDelNivel.Inicio;
         actualLevel++;
         s_instantiate.timeToWait = s_instantiate.timeToWait + 0.01f;
+
 
     }
 

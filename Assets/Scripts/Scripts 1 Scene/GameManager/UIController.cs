@@ -52,11 +52,11 @@ public class UIController : MonoBehaviour
         panelFinal.SetActive(true);
         t_puntacionFinal.text = "Puntuacion FInal: " + s_dataKPI.recolectados.ToString();
 
-        if(s_dataKPI.recolectados <= 0 && s_dataKPI.recolectados <= 5)
+        if(s_dataKPI.recolectados <= 0 || s_dataKPI.recolectados <= 5)
         {
             t_mensaje.text = "No te rindas, puedes conseguir más puntos";
         }
-        if(s_dataKPI.recolectados == 6 && s_dataKPI.recolectados <= 14)
+        if(s_dataKPI.recolectados == 6 || s_dataKPI.recolectados <= 14)
         {
             t_mensaje.text = "Muy bien, sigue así";
 

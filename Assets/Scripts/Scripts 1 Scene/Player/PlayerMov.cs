@@ -9,13 +9,15 @@ public class PlayerMov : MonoBehaviour
 
     private Rigidbody rb;
     public float speed = 4f;
-    public float speedYDash = 6f;
-    private float speedInicial;
 
     private void Awake()
     {
         GAMEON = true;
         rb = GetComponent<Rigidbody>();
+    }
+    private void Start()
+    {
+
     }
 
     void Update()
@@ -30,15 +32,7 @@ public class PlayerMov : MonoBehaviour
 
            rb.MovePosition(rb.position + move * speed * Time.deltaTime);
 
-           if (Input.GetKeyDown(KeyCode.LeftShift))
-           {
-               speedInicial = speed;
-               speed = speed + speedYDash; 
-           }
-            else
-            {
-                speed = speedInicial;
-            }
+
         }
         
 

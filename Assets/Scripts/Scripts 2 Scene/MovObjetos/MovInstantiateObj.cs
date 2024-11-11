@@ -37,7 +37,7 @@ public class MovInstantiateObj : MonoBehaviour
             }
             else
             {
-                transform.position = Vector3.Lerp(posFinal, posInicial, t);
+                transform.position = Vector3.Lerp(posFinal, posInicial, t) ;
 
                 if (t >= 1f)
                 {

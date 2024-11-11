@@ -13,14 +13,14 @@ public class MovPlayer : MonoBehaviour
     Rigidbody rb;
     #endregion
 
-    #region MovGolpeado
-    [SerializeField] bool objetoGolpeado;
-    private bool rotationToFinal;
-    public Quaternion rotationInicial; // Rotación inicial
-    public Quaternion rotationFinal;   // Rotación final
-    public float speedRotation = 2.0f; // Duración de la rotación
-    private float t = 0f; // Factor de interpolación
-    #endregion
+    //#region MovGolpeado
+    //[SerializeField] bool objetoGolpeado;
+    //private bool rotationToFinal;
+    //public Quaternion rotationInicial; // Rotación inicial
+    //public Quaternion rotationFinal;   // Rotación final
+    //public float speedRotation = 2.0f; // Duración de la rotación
+    //private float t = 0f; // Factor de interpolación
+    //#endregion
 
     private void Awake()
     {
@@ -30,7 +30,6 @@ public class MovPlayer : MonoBehaviour
 
     private void Start()
     {
-        objetoGolpeado = false;
         speedInicial = speed;
     }
 
@@ -59,28 +58,28 @@ public class MovPlayer : MonoBehaviour
                 speed = speedInicial;
             }
 
-            //Rotacion por objeto golpeado
-            if (objetoGolpeado == true)
-            {
-                t += Time.deltaTime / speedRotation;
-                if(rotationToFinal)
-                transform.rotation = Quaternion.Lerp(rotationInicial, rotationFinal, t);
-                if (t >= 1f)
-                {
-                    t = 0f;
-                    rotationToFinal = false;
-                }               
+            ////Rotacion por objeto golpeado
+            //if (objetoGolpeado == true)
+            //{
+            //    t += Time.deltaTime / speedRotation;
+            //    if(rotationToFinal)
+            //    transform.rotation = Quaternion.Lerp(rotationInicial, rotationFinal, t);
+            //    if (t >= 1f)
+            //    {
+            //        t = 0f;
+            //        rotationToFinal = false;
+            //    }               
 
-            }
-            else if( objetoGolpeado == true  && rotationToFinal == false) 
-            {
-                transform.rotation = Quaternion.Lerp(rotationFinal, rotationInicial, t);
-                if(t >= 1f)
-                {
-                    t = 0f;
-                    objetoGolpeado = false;
-                }
-            }
+            //}
+            //else if( objetoGolpeado == true  && rotationToFinal == false) 
+            //{
+            //    transform.rotation = Quaternion.Lerp(rotationFinal, rotationInicial, t);
+            //    if(t >= 1f)
+            //    {
+            //        t = 0f;
+            //        objetoGolpeado = false;
+            //    }
+            //}
 
 
             
@@ -100,7 +99,6 @@ public class MovPlayer : MonoBehaviour
 
             print("Sonido Colision");
 
-            objetoGolpeado = true;
 
         }
 

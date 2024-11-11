@@ -934,7 +934,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GAMEON: 0
   speed: 4
-  speedYDash: 6
 --- !u!4 &813189558
 Transform:
   m_ObjectHideFlags: 0
