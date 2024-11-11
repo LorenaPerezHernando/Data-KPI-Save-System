@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+[System.Serializable]
 public class SaveSystem : MonoBehaviour
 {
     private string filePath;
-    [SerializeField, HideInInspector] ProgressData s_progressData;
+    public ProgressData s_progressData;
 
 
     private void Start()

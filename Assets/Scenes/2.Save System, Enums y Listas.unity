@@ -2207,7 +2207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b06ce8ad11fc4f42b77fa25c0c51ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s_progressData: {fileID: 0}
+  s_progressData: {fileID: 1176739190}
 --- !u!114 &1176739192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,10 +2560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   speedYDash: 3
-  objetoGolpeado: 0
-  rotationInicial: {x: -0.79863554, y: 0, z: 0, w: 0.60181504}
-  rotationFinal: {x: 0, y: 0, z: 0, w: 0}
-  speedRotation: 2
 --- !u!136 &1447086199
 CapsuleCollider:
   m_ObjectHideFlags: 0
