@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnTriggerPoints : MonoBehaviour
+public class OnCollisionPoints : MonoBehaviour
 {
     GameOn managerGameOn;
 
@@ -10,12 +10,15 @@ public class OnTriggerPoints : MonoBehaviour
     {
         managerGameOn = FindAnyObjectByType<GameOn>();
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.gameObject.tag == "BeachObject")
+        if(collision.gameObject.tag == "BeachObject")
         {
             managerGameOn.points++;
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
+        
     }
+
 }

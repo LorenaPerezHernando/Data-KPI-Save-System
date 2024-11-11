@@ -27,6 +27,7 @@ public class MovInstantiateObj : MonoBehaviour
 
             if (movingToFinal)
             {
+                speed = Random.Range(0.5f, 3); //Para soltar Obj por toda la pantalla
                 transform.position = Vector3.Lerp(posInicial, posFinal, t);
                 if (t >= 1f)
                 {
