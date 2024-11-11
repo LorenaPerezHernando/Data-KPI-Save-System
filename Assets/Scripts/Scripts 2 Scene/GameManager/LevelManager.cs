@@ -18,21 +18,21 @@ public class LevelManager : MonoBehaviour
 
     GameOn s_ManagerGameOn;
     UIControl s_UIControl;
-    CountDown s_CoundDown;
     SaveSystem s_saveSystem;
+    Instantiate s_instantiate;
 
     private void Awake()
     {
+        s_ManagerGameOn = GetComponent<GameOn>();
+        s_UIControl = FindAnyObjectByType<UIControl>();
+        s_instantiate = FindAnyObjectByType<Instantiate>();
         s_saveSystem = GetComponent<SaveSystem>();
+
         ProgressData progress = s_saveSystem.CargarProgreso();
         actualLevel = progress.actualLevel;
         tiempoJugado = progress.timePlayed;
         puntuacionTotal = progress.totalPoints;
 
-        s_ManagerGameOn = GetComponent<GameOn>();
-        s_UIControl = FindAnyObjectByType<UIControl>();
-
-        
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // Guardar 
-        puntuacionTotal = s_ManagerGameOn.points;
+        puntuacionTotal = puntuacionTotal + s_ManagerGameOn.points;
         ProgressData progress = new ProgressData
         {
             actualLevel = actualLevel + 1,
@@ -65,11 +65,15 @@ public class LevelManager : MonoBehaviour
             totalPoints = puntuacionTotal
         };
         s_saveSystem.GuardarProgreso(progress);
-
-        // Reiniciar y preparar cosas siguiente nivel
-        actualLevel++;
-        s_ManagerGameOn.points = 0;
+        
+        //Texto Panel
+        s_UIControl.t_pointsPanelFinal.text = "Points: " + s_ManagerGameOn.points.ToString();
+        s_UIControl.t_totalPoints.text = "Total Points: " + puntuacionTotal.ToString();
         s_UIControl.panelNextLevel.SetActive(true);
+
+        //Poner nivel Mas dificil
+        actualLevel++;
+        s_instantiate.timeToWait = s_instantiate.timeToWait + 0.01f;
 
     }
 

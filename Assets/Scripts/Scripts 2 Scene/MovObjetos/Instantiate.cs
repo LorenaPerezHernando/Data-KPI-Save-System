@@ -6,7 +6,7 @@ using UnityEngine;
 public class Instantiate : MonoBehaviour
 {
     GameOn managerGameOn;
-    [SerializeField] float timeToWait = 0.2f; 
+    public float timeToWait = 0.2f; 
 
     [SerializeField] GameObject[] prefabBeachObj;
 

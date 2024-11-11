@@ -27,7 +27,7 @@ public class GameOn : MonoBehaviour
     {
         if(s_CountDown.timeCountTo0 == true)
         {
-
+            s_CountDown.timeCountTo0 = false;
             s_LevelManager.CompletarNivel();
         }
     }
@@ -35,6 +35,7 @@ public class GameOn : MonoBehaviour
     public void StartGame() //From the StartButton
     {
         gameOn = true;
+        points = 0;
         estadoActual = EstadoDelNivel.Jugando;
         print("Estado: Jugando");
         s_CountDown.TimeCounter();

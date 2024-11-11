@@ -6,7 +6,7 @@ using System.IO;
 public class SaveSystem : MonoBehaviour
 {
     private string filePath;
-    ProgressData s_progressData;
+    [SerializeField, HideInInspector] ProgressData s_progressData;
 
 
     private void Start()

@@ -34,7 +34,7 @@ public class CountDown : MonoBehaviour
     {
         countDown -= Time.deltaTime;
 
-        if(countDown <= 0)
+        if(countDown < 0)
         {
             timeCountTo0 = true;
 

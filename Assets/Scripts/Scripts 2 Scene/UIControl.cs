@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class UIControl : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI t_points;
@@ -10,6 +11,9 @@ public class UIControl : MonoBehaviour
     [SerializeField] TextMeshProUGUI t_countDown;
     CountDown s_ManagerLv;
     public GameObject panelNextLevel;
+
+    public TextMeshProUGUI t_pointsPanelFinal;
+    public TextMeshProUGUI t_totalPoints;
     void Awake()
     {
         s_ManagergameOn = FindObjectOfType<GameOn>();
@@ -28,6 +32,11 @@ public class UIControl : MonoBehaviour
         CambiarColor();
 
         t_countDown.text = string.Format("{0:00}", s_ManagerLv.seconds);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ExitButton();
+        }
     }
 
     void Textpoints()
@@ -45,6 +54,11 @@ public class UIControl : MonoBehaviour
 
         if(s_ManagergameOn.points == 0)
             t_points.color = Color.white;
+    }
+
+    void ExitButton()
+    {
+        Application.Quit();
     }
 
     
