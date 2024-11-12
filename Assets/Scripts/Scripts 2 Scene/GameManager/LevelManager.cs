@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     UIControl s_UIControl;
     SaveSystem s_saveSystem;
     Instantiate s_instantiate;
+    ProgressData s_progressData;
 
 
     private void Awake()
@@ -29,10 +30,10 @@ public class LevelManager : MonoBehaviour
         s_instantiate = FindAnyObjectByType<Instantiate>();
         s_saveSystem = GetComponent<SaveSystem>();
 
-        ProgressData progress = s_saveSystem.CargarProgreso();
-        actualLevel = progress.actualLevel;
-        tiempoJugado = progress.timePlayed;
-        puntuacionTotal = progress.totalPoints;
+        s_progressData = s_saveSystem.CargarProgreso();
+        actualLevel = s_progressData.actualLevel;
+        tiempoJugado = s_progressData.timePlayed;
+        puntuacionTotal = s_progressData.totalPoints;
 
     }
 
@@ -59,13 +60,7 @@ public class LevelManager : MonoBehaviour
 
         // Guardar 
         puntuacionTotal = puntuacionTotal + s_ManagerGameOn.points;
-        ProgressData progress = new ProgressData
-        {
-            actualLevel = actualLevel + 1,
-            timePlayed = tiempoJugado,
-            totalPoints = puntuacionTotal
-        };
-        s_saveSystem.GuardarProgreso(progress);
+
         
         //Texto Panel
         s_UIControl.t_pointsPanelFinal.text = "Points: " + s_ManagerGameOn.points.ToString();
@@ -77,7 +72,17 @@ public class LevelManager : MonoBehaviour
         actualLevel++;
         s_instantiate.timeToWait = s_instantiate.timeToWait + 0.01f;
 
+        ActualizarProgreso(actualLevel, tiempoJugado, puntuacionTotal);
+        
 
+    }
+
+    public void ActualizarProgreso(int level, float timePlayed, int points)
+    {
+        print("Guardando Progreso");
+        s_progressData = new ProgressData(level, timePlayed, points);
+        s_saveSystem.GuardarProgreso(s_progressData);
+        print("Fin Guardado");
     }
 
 

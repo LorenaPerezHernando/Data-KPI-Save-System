@@ -22,10 +22,13 @@ public class Recolectable : MonoBehaviour
     [SerializeField] Renderer[] thisRenderer;
     [SerializeField] Collider[] thisCollider;
 
+    [SerializeField] AudioSource thisAudioSource;
+
 
     //Methods
     private void Awake()
     {
+        thisAudioSource = GetComponent<AudioSource>();
         thisRenderer = GetComponentsInChildren<Renderer>();
         thisCollider = GetComponentsInChildren<Collider>();
 
@@ -39,6 +42,7 @@ public class Recolectable : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             print("Collision con Player");
+            thisAudioSource.Play();
             DesactivarObjeto();
             Recolectar();                     
         }

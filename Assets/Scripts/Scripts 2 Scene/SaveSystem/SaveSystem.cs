@@ -9,22 +9,25 @@ public class SaveSystem : MonoBehaviour
     private string filePath;
     public ProgressData s_progressData;
 
-
-    private void Start()
+    private void Awake()
     {
         // Define la ruta del archivo JSON donde se guardarán los datos
         filePath = Application.persistentDataPath + "/progress.json";
-
-        // Carga los datos de progreso al inicio del juego
-        s_progressData = CargarProgreso();
-        Debug.Log($"Nivel Actual: {s_progressData.actualLevel}, Tiempo Jugado: {s_progressData.timePlayed}, Puntuación: {s_progressData.totalPoints}");
+        
     }
+    //private void Start()
+    //{
+
+    //    // Carga los datos de progreso al inicio del juego
+    //    s_progressData = CargarProgreso();
+    //    Debug.Log($"Nivel Actual: {s_progressData.actualLevel}, Tiempo Jugado: {s_progressData.timePlayed}, Puntuación: {s_progressData.totalPoints}");
+    //}
 
     public void GuardarProgreso(ProgressData data) //Guarda los datos al darle a nextLv
     {
-        string json = JsonUtility.ToJson(data);
+        string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(filePath, json);
-        print(filePath);
+        Debug.Log("Datos guardados en " + filePath);
     }
 
     public ProgressData CargarProgreso()
@@ -32,9 +35,16 @@ public class SaveSystem : MonoBehaviour
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<ProgressData>(json);
-            print(filePath);
+            ProgressData data = JsonUtility.FromJson<ProgressData>(json);
+            Debug.Log("Datos cargados desde " + filePath);
+            return data;
         }
-        return new ProgressData();  // Si no hay archivo, devuelve datos nuevos.
+        else
+        {
+            Debug.LogWarning("No se encontró el archivo de progreso. Creando un nuevo progreso.");
+            // Si no existe el archivo, devuelve un nuevo objeto ProgressData con valores por defecto
+            return new ProgressData(1, 0, 0);
+        }
+        
     }
 }
