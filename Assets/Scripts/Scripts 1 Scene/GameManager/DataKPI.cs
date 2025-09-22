@@ -6,17 +6,16 @@ using static Recolectable;
 
 public class DataKPI : MonoBehaviour
 {
+    #region Fields & Properties
 
     [SerializeField] int kpiRecolect1;
     [SerializeField] int kpiRecolect2;
     [SerializeField] int kpiRecolect3;
     public int recolectados;
-    FirstStart_CreateRecolectables s_CreateRecolectable;
-    //Methods
-    private void Awake()
-    {
-        s_CreateRecolectable = FindFirstObjectByType<FirstStart_CreateRecolectables>();
-    }
+
+    #endregion
+
+    #region Unity Callbacks
     void Start()
     {
         kpiRecolect1 = 0;
@@ -24,6 +23,8 @@ public class DataKPI : MonoBehaviour
         kpiRecolect3 = 0;
         recolectados = 0; 
     }
+    #endregion
+    #region Methods
     public void IncrementarKPI(Recolectable.KPIType tipoKPI)
     {
         switch (tipoKPI)
@@ -51,4 +52,5 @@ public class DataKPI : MonoBehaviour
     {
 
     }
+    #endregion
 }

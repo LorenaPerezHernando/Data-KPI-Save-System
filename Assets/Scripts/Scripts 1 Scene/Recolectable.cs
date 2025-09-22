@@ -12,20 +12,21 @@ public class Recolectable : MonoBehaviour
         recolectable2KPI,
         recolectable3KPI
     }
-    //Properties
+    #region Properties
     public KPIType typeKPI;
     public int timeWaitingToReset;
-    //Fields
-    DataKPI s_dataKPI;
-    FirstStart_CreateRecolectables s_createRecolectables;
+    #endregion
+    #region Fields
+    private DataKPI s_dataKPI;
+    private FirstStart_CreateRecolectables s_createRecolectables;
 
-    [SerializeField] Renderer[] thisRenderer;
-    [SerializeField] Collider[] thisCollider;
+    [SerializeField] private Renderer[] thisRenderer;
+    [SerializeField] private Collider[] thisCollider;
 
-    [SerializeField] AudioSource thisAudioSource;
+    [SerializeField] private AudioSource thisAudioSource;
+    #endregion
 
-
-    //Methods
+    #region Unity CallBacks
     private void Awake()
     {
         thisAudioSource = GetComponent<AudioSource>();
@@ -47,6 +48,7 @@ public class Recolectable : MonoBehaviour
             Recolectar();                     
         }
     }
+    #endregion
 
     public void Recolectar()
     {
