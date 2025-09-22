@@ -50,7 +50,7 @@ public class UIController : MonoBehaviour
     {
         s_playerMov.GAMEON = false;
         panelFinal.SetActive(true);
-        t_puntacionFinal.text = "Puntuacion FInal: " + s_dataKPI.recolectados.ToString();
+        t_puntacionFinal.text = "Puntuacion Final: " + s_dataKPI.recolectados.ToString();
 
         if(s_dataKPI.recolectados <= 0 || s_dataKPI.recolectados <= 5)
         {
