@@ -48,6 +48,7 @@ public class UIController : MonoBehaviour
     
     void TimeOver()
     {
+        t_timerText.text = "00:00";
         s_playerMov.GAMEON = false;
         panelFinal.SetActive(true);
         t_puntacionFinal.text = "Puntuacion Final: " + s_dataKPI.recolectados.ToString();
